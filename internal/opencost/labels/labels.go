@@ -2,9 +2,9 @@ package labels
 
 import (
 	"github.com/opencost/opencost/pkg/kubecost"
+	commonskuberneteslabels "github.com/plantoncloud-inc/go-commons/kubernetes/labels"
+	commonslabels "github.com/plantoncloud-inc/go-commons/labels"
 	log "github.com/sirupsen/logrus"
-	commonskuberneteslabels "gitlab.com/plantoncode/planton/pcs/lib/gomod/go-commons.git/kubernetes/labels"
-	commonslabels "gitlab.com/plantoncode/planton/pcs/lib/gomod/go-commons.git/labels"
 )
 
 type WorkloadLabels struct {

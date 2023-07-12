@@ -4,10 +4,10 @@ import (
 	"context"
 	"github.com/golang-jwt/jwt/v4"
 	"github.com/pkg/errors"
+	iamrpc "github.com/plantoncloud-inc/iam-protos/zzgo/planton/iam/proto/v1/authn/machine/rpc"
+	"github.com/plantoncloud-inc/planton-cloud-kube-agent/internal/apiclient"
+	"github.com/plantoncloud-inc/planton-cloud-kube-agent/internal/config"
 	log "github.com/sirupsen/logrus"
-	"gitlab.com/plantoncode/planton/pcs/lib/mod/planton-cloud-kube-agent.git/internal/apiclient"
-	"gitlab.com/plantoncode/planton/pcs/lib/mod/planton-cloud-kube-agent.git/internal/config"
-	iamrpc "gitlab.com/plantoncode/planton/pcs/lib/proto/iam.git/zzgo/planton/iam/proto/v1/authn/machine/rpc"
 	"google.golang.org/grpc"
 	"time"
 )

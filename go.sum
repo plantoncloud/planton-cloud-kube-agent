@@ -545,6 +545,14 @@ github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINE
 github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
 github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pkg/sftp v1.10.1/go.mod h1:lYOWFsE0bwd1+KfKJaKeuokY15vzFx25BLbzYYoAxZI=
+github.com/plantoncloud-inc/company-protos/zzgo v0.0.0-20230712091009-bb5d3819f37d h1:4f+kXOKA4focqKQddLBsPfGPX0Rsf+1bcinTHE2NUY8=
+github.com/plantoncloud-inc/company-protos/zzgo v0.0.0-20230712091009-bb5d3819f37d/go.mod h1:e5u3SokbRsy+V3nXLwMk5LS6PANPuGldM6K3bBOqbY0=
+github.com/plantoncloud-inc/go-commons v0.0.301 h1:RtDgMP+BD3vO85UzvjCYP6/u1V78KtDHsLlnO1zDFyA=
+github.com/plantoncloud-inc/go-commons v0.0.301/go.mod h1:MYhkpGzPOZF1JMmbjVsfEclVdIh4SZIbjbTBUXRmloE=
+github.com/plantoncloud-inc/iam-protos/zzgo v0.0.0-20230712090937-be2abbce9a70 h1:rWBXvAHMjEVnSt/UDPHyRP6VJxmTuYNcY8s/hzLET/g=
+github.com/plantoncloud-inc/iam-protos/zzgo v0.0.0-20230712090937-be2abbce9a70/go.mod h1:EYX/DVlVIuL1IdWZypBSU6PtpLps/gBKcIUff/Nr9IA=
+github.com/plantoncloud-inc/proto-commons/zzgo v0.0.0-20230712082844-7e4051746618 h1:DNo8G0xY5XWtZrBTvyfldJM1hd/1eYXvA9nUZFAViHo=
+github.com/plantoncloud-inc/proto-commons/zzgo v0.0.0-20230712082844-7e4051746618/go.mod h1:aTDx5PT91aNeY68fzXMC3pIE5avSQHsQUaYY87Suk5g=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/posener/complete v1.1.1/go.mod h1:em0nMJCgc9GFtwrmVmEMR/ZL6WyhyjMBndrE9hABlRI=
@@ -632,7 +640,6 @@ github.com/stretchr/testify v1.7.1/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/
 github.com/stretchr/testify v1.8.0/go.mod h1:yNjHg4UonilssWZ8iaSj1OCr/vHnekPRkoO+kdMU+MU=
 github.com/stretchr/testify v1.8.1/go.mod h1:w2LPCIKwWwSfY2zedu0+kehJoqGctiVI29o6fzry7u4=
 github.com/stretchr/testify v1.8.2 h1:+h33VjcLVPDHtOdpUCuF+7gSuG3yGIftsP1YvFihtJ8=
-github.com/stretchr/testify v1.8.2/go.mod h1:w2LPCIKwWwSfY2zedu0+kehJoqGctiVI29o6fzry7u4=
 github.com/subosito/gotenv v1.2.0 h1:Slr1R9HxAlEKefgq5jn9U+DnETlIUa6HfgEzj0g5d7s=
 github.com/subosito/gotenv v1.2.0/go.mod h1:N0PQaV/YGNqwC0u51sEeR/aUtSLEXKX9iv69rRypqCw=
 github.com/uber/jaeger-client-go v2.30.0+incompatible h1:D6wyKGCecFaSRUpo8lCVbaOOb6ThwMmTEbhRwtKR97o=
@@ -663,14 +670,6 @@ github.com/yuin/goldmark v1.2.1/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9dec
 github.com/yuin/goldmark v1.3.5/go.mod h1:mwnBkeHKe2W/ZEtQ+71ViKU8L12m81fl3OWwC1Zlc8k=
 github.com/yuin/goldmark v1.4.0/go.mod h1:mwnBkeHKe2W/ZEtQ+71ViKU8L12m81fl3OWwC1Zlc8k=
 github.com/yuin/goldmark v1.4.13/go.mod h1:6yULJ656Px+3vBD8DxQVa3kxgyrAnzto9xy5taEt/CY=
-gitlab.com/plantoncode/planton/pcs/lib/gomod/go-commons.git v0.0.26 h1:sLqShhZq0SOPkEiGP0J+nHcayB9GAwYgWZXG1XZeqFc=
-gitlab.com/plantoncode/planton/pcs/lib/gomod/go-commons.git v0.0.26/go.mod h1:Rg/K7sLX9hkTR1I37EkH3jci8U1iKGpepAkNFPIVntI=
-gitlab.com/plantoncode/planton/pcs/lib/proto/commons.git/zzgo v0.0.0-20230607230109-f72ccfb7bba0 h1:4Ye99Yww8PMVLQrQdUKzziuWGTX4XOGWjhCy1Xd/tg4=
-gitlab.com/plantoncode/planton/pcs/lib/proto/commons.git/zzgo v0.0.0-20230607230109-f72ccfb7bba0/go.mod h1:UASQW/RQEFOOQy8hwKsbHWuD/n2bFUdMSOcGcE6wFf0=
-gitlab.com/plantoncode/planton/pcs/lib/proto/company.git/zzgo v0.0.0-20230609005725-66d71cf004b3 h1:wpVuld6snvdBL4nScHVGPv+qzGMC3kcVz6vm2ISIJHM=
-gitlab.com/plantoncode/planton/pcs/lib/proto/company.git/zzgo v0.0.0-20230609005725-66d71cf004b3/go.mod h1:93mvSObN/+nHQ8+Wtt87dJfkX2/Wn5DxM4d5G96uNnk=
-gitlab.com/plantoncode/planton/pcs/lib/proto/iam.git/zzgo v0.0.0-20230609005650-172650ab77b7 h1:r1pA/5oqEivwjNNPz5Qprs7u3XYFKJi4u6L5Ety2zkA=
-gitlab.com/plantoncode/planton/pcs/lib/proto/iam.git/zzgo v0.0.0-20230609005650-172650ab77b7/go.mod h1:iArefsZgwsVSVPNKdf6Pc0jXuywVDYMZRLMbx7/30ME=
 go.etcd.io/bbolt v1.3.5 h1:XAzx9gjCb0Rxj7EoqcClPD1d5ZBxZJk0jbuoPHenBt0=
 go.etcd.io/bbolt v1.3.5/go.mod h1:G5EMThwa9y8QZGBClrRx5EY+Yw9kAhnjy3bSjsnlVTQ=
 go.etcd.io/etcd/api/v3 v3.5.0/go.mod h1:cbVKeC6lCfl7j/8jBhAK6aIYO9XOjdptoxU/nLQcPvs=

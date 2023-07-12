@@ -1,17 +1,17 @@
-module gitlab.com/plantoncode/planton/pcs/lib/mod/planton-cloud-kube-agent.git
+module github.com/plantoncloud-inc/planton-cloud-kube-agent
 
-go 1.19
+go 1.20
 
 require (
 	github.com/golang-jwt/jwt/v4 v4.5.0
 	github.com/jinzhu/copier v0.3.5
 	github.com/opencost/opencost v1.102.2
 	github.com/pkg/errors v0.9.1
+	github.com/plantoncloud-inc/company-protos/zzgo v0.0.0-20230712091009-bb5d3819f37d
+	github.com/plantoncloud-inc/go-commons v0.0.301
+	github.com/plantoncloud-inc/iam-protos/zzgo v0.0.0-20230712090937-be2abbce9a70
+	github.com/plantoncloud-inc/proto-commons/zzgo v0.0.0-20230712082844-7e4051746618
 	github.com/sirupsen/logrus v1.9.0
-	gitlab.com/plantoncode/planton/pcs/lib/gomod/go-commons.git v0.0.26
-	gitlab.com/plantoncode/planton/pcs/lib/proto/commons.git/zzgo v0.0.0-20230607230109-f72ccfb7bba0
-	gitlab.com/plantoncode/planton/pcs/lib/proto/company.git/zzgo v0.0.0-20230609005725-66d71cf004b3
-	gitlab.com/plantoncode/planton/pcs/lib/proto/iam.git/zzgo v0.0.0-20230609005650-172650ab77b7
 	golang.org/x/crypto v0.8.0
 	google.golang.org/grpc v1.54.0
 )
@@ -125,7 +125,6 @@ require (
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/spf13/viper v1.8.1 // indirect
-	github.com/stretchr/testify v1.8.2 // indirect
 	github.com/subosito/gotenv v1.2.0 // indirect
 	go.etcd.io/bbolt v1.3.5 // indirect
 	go.opencensus.io v0.24.0 // indirect

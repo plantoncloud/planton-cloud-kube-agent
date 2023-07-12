@@ -1,1 +1,1 @@
-{"cookiecutter":{"go_module_name":"gitlab.com/plantoncode/planton/pcs/lib/mod/planton-cloud-kube-agent.git","project_slug":"planton-cloud-kube-agent"}}
+{"cookiecutter":{"go_module_name":"github.com/plantoncloud-inc/planton-cloud-kube-agent","project_slug":"planton-cloud-kube-agent"}}

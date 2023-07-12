@@ -2,9 +2,9 @@ package scheduler
 
 import (
 	"context"
+	"github.com/plantoncloud-inc/planton-cloud-kube-agent/internal/config"
+	"github.com/plantoncloud-inc/planton-cloud-kube-agent/internal/opencost/exporter"
 	log "github.com/sirupsen/logrus"
-	"gitlab.com/plantoncode/planton/pcs/lib/mod/planton-cloud-kube-agent.git/internal/config"
-	"gitlab.com/plantoncode/planton/pcs/lib/mod/planton-cloud-kube-agent.git/internal/opencost/exporter"
 	"time"
 )
 
