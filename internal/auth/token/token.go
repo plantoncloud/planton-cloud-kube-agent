@@ -57,7 +57,7 @@ func getToken(ctx context.Context, c *config.Config, conn *grpc.ClientConn) (str
 	if err != nil {
 		return "", errors.Wrap(err, "failed to get token")
 	}
-	return token.Val, nil
+	return token.Value, nil
 }
 
 func checkAndRotateToken(ctx context.Context, c *config.Config) error {
