@@ -50,7 +50,7 @@ func Export(ctx context.Context, c *config.Config) error {
 		plantonCloudCostAllocation.CompanyId = workloadLabels.Company
 		plantonCloudCostAllocation.ProductId = workloadLabels.Product
 		plantonCloudCostAllocation.HostingClusterId = c.PlantonCloudKubeAgentHostingClusterId
-		plantonCloudCostAllocation.ProductEnvId = workloadLabels.ProductEnv
+		plantonCloudCostAllocation.EnvironmentId = workloadLabels.Environment
 		plantonCloudCostAllocation.ResourceType = workloadLabels.ResourceType
 		plantonCloudCostAllocation.ResourceId = workloadLabels.ResourceId
 		plantonCloudCostAllocation.StartTs = ca.Start

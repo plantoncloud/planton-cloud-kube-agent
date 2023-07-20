@@ -37,3 +37,10 @@ run-image:
 .PHONY: publish-image
 publish-image: build-image
 	docker push ${docker_image_repo}:${version}
+
+.PHONY: update-deps
+update-deps:
+	go get github.com/plantoncloud-inc/proto-commons/zzgo
+	go get github.com/plantoncloud-inc/iam-protos/zzgo
+	go get github.com/plantoncloud-inc/company-protos/zzgo
+	go get github.com/plantoncloud-inc/go-commons

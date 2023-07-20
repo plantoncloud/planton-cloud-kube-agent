@@ -10,7 +10,7 @@ import (
 type WorkloadLabels struct {
 	Company      string
 	Product      string
-	ProductEnv   string
+	Environment  string
 	ResourceType string
 	ResourceId   string
 }
@@ -29,11 +29,11 @@ func GetLabels(allocation *kubecost.AllocationJSON) *WorkloadLabels {
 		log.Debugf("####: %s has %s for product label %s", allocation.Name, allocation.Properties.Labels[productPrometheusLabel], productPrometheusLabel)
 		labels.Product = allocation.Properties.Labels[productPrometheusLabel]
 	}
-	productEnvPrometheusLabel := commonslabels.WithPrometheusFormat(commonskuberneteslabels.ProductEnv)
-	log.Debugf("checking if %s has product-env label %s", allocation.Name, productEnvPrometheusLabel)
-	if _, ok := allocation.Properties.Labels[productEnvPrometheusLabel]; ok {
-		log.Debugf("####: %s has %s for product-env label %s", allocation.Name, allocation.Properties.Labels[productEnvPrometheusLabel], productEnvPrometheusLabel)
-		labels.ProductEnv = allocation.Properties.Labels[productEnvPrometheusLabel]
+	environmentPrometheusLabel := commonslabels.WithPrometheusFormat(commonskuberneteslabels.Environment)
+	log.Debugf("checking if %s has product-env label %s", allocation.Name, environmentPrometheusLabel)
+	if _, ok := allocation.Properties.Labels[environmentPrometheusLabel]; ok {
+		log.Debugf("####: %s has %s for product-env label %s", allocation.Name, allocation.Properties.Labels[environmentPrometheusLabel], environmentPrometheusLabel)
+		labels.Environment = allocation.Properties.Labels[environmentPrometheusLabel]
 	}
 
 	resourceTypePrometheusLabel := commonslabels.WithPrometheusFormat(commonskuberneteslabels.ResourceType)
