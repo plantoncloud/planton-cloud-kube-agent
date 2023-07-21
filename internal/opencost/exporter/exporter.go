@@ -28,7 +28,7 @@ func Export(ctx context.Context, c *config.Config) error {
 	if err != nil {
 		return errors.Wrap(err, "failed to get new planton-cloud api client")
 	}
-	costAllocationCmdControllerClient := hostingcostrpc.NewCostAllocationCmdControllerClient(conn)
+	costAllocationCmdControllerClient := hostingcostrpc.NewCostAllocationCommandControllerClient(conn)
 	plantonCostAllocations := make([]*hostingcostrpc.CostAllocation, 0)
 	for _, ca := range openCostAllocations {
 		workloadLabels := labels.GetLabels(ca)
