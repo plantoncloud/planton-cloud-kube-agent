@@ -6,7 +6,7 @@ import (
 	"github.com/jinzhu/copier"
 	"github.com/opencost/opencost/pkg/kubecost"
 	"github.com/pkg/errors"
-	hostingcostrpc "github.com/plantoncloud-inc/company-protos/zzgo/planton/company/proto/v1/hosting/cost/rpc"
+	kubernetescostrpc "github.com/plantoncloud-inc/company-protos/zzgo/planton/company/proto/v1/kubernetes/cost/rpc"
 	commonsresource "github.com/plantoncloud-inc/go-commons/domain/common/resource"
 	"github.com/plantoncloud-inc/planton-cloud-kube-agent/internal/apiclient"
 	"github.com/plantoncloud-inc/planton-cloud-kube-agent/internal/auth/token"
@@ -28,8 +28,8 @@ func Export(ctx context.Context, c *config.Config) error {
 	if err != nil {
 		return errors.Wrap(err, "failed to get new planton-cloud api client")
 	}
-	costAllocationCmdControllerClient := hostingcostrpc.NewCostAllocationCommandControllerClient(conn)
-	plantonCostAllocations := make([]*hostingcostrpc.CostAllocation, 0)
+	costAllocationCmdControllerClient := kubernetescostrpc.NewCostAllocationCommandControllerClient(conn)
+	plantonCostAllocations := make([]*kubernetescostrpc.CostAllocation, 0)
 	for _, ca := range openCostAllocations {
 		workloadLabels := labels.GetLabels(ca)
 
@@ -39,7 +39,7 @@ func Export(ctx context.Context, c *config.Config) error {
 			continue
 		}
 
-		var plantonCloudCostAllocation hostingcostrpc.CostAllocation
+		var plantonCloudCostAllocation kubernetescostrpc.CostAllocation
 
 		if err := copier.Copy(&plantonCloudCostAllocation, &ca); err != nil {
 			return errors.Wrap(err, "failed to copy cost-allocation object from open-cost to planton-cloud")
@@ -49,7 +49,7 @@ func Export(ctx context.Context, c *config.Config) error {
 
 		plantonCloudCostAllocation.CompanyId = workloadLabels.Company
 		plantonCloudCostAllocation.ProductId = workloadLabels.Product
-		plantonCloudCostAllocation.HostingClusterId = c.PlantonCloudKubeAgentHostingClusterId
+		plantonCloudCostAllocation.KubernetesClusterId = c.PlantonCloudKubeAgentKubernetesClusterId
 		plantonCloudCostAllocation.EnvironmentId = workloadLabels.Environment
 		plantonCloudCostAllocation.ResourceType = workloadLabels.ResourceType
 		plantonCloudCostAllocation.ResourceId = workloadLabels.ResourceId
@@ -59,7 +59,7 @@ func Export(ctx context.Context, c *config.Config) error {
 	}
 	log.Debugf("exporting %d entriesto planton-cloud", len(plantonCostAllocations))
 	if _, err := costAllocationCmdControllerClient.Create(ctx,
-		&hostingcostrpc.CostAllocations{
+		&kubernetescostrpc.CostAllocations{
 			Entries: plantonCostAllocations,
 		}); err != nil {
 		return errors.Wrap(err, "failed to export cost-allocation to planton-cloud")
@@ -75,7 +75,7 @@ func getHourlyWindow() string {
 	return fmt.Sprintf("%s,%s", startWindow.Format("2006-01-02T15:04:05Z"), endWindow.Format("2006-01-02T15:04:05Z"))
 }
 
-func copy(costAllocation *hostingcostrpc.CostAllocation, allocationJson *kubecost.AllocationJSON) {
+func copy(costAllocation *kubernetescostrpc.CostAllocation, allocationJson *kubecost.AllocationJSON) {
 	costAllocation.CpuCores = *allocationJson.CPUCores
 	costAllocation.CpuCoreRequestAverage = *allocationJson.CPUCoreRequestAverage
 	costAllocation.CpuCost = *allocationJson.CPUCost

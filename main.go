@@ -39,8 +39,8 @@ func main() {
 
 	log.Infof("access token rotator has been successfully started")
 
-	log.Infof("starting planton-cloud-kube-agent on %s hosting-env",
-		c.PlantonCloudKubeAgentHostingClusterId)
+	log.Infof("starting planton-cloud-kube-agent on %s kubernetes-env",
+		c.PlantonCloudKubeAgentKubernetesClusterId)
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", Port))
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
