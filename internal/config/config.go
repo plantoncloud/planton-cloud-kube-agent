@@ -9,7 +9,7 @@ import (
 type Config struct {
 	PlantonCloudKubeAgentMachineAccountEmail string
 	PlantonCloudKubeAgentClientSecret        string
-	PlantonCloudKubeAgentHostingClusterId    string
+	PlantonCloudKubeAgentKubernetesClusterId string
 	PlantonCloudServiceApiEndpoint           string
 	OpenCostApiEndpoint                      string
 	OpenCostPollingIntervalSeconds           int
@@ -20,7 +20,7 @@ type Config struct {
 const (
 	EnvVarPlantonCloudKubeAgentMachineAccountEmail = "PLANTON_CLOUD_KUBE_AGENT_MACHINE_ACCOUNT_EMAIL"
 	EnvVarPlantonCloudKubeAgentClientSecret        = "PLANTON_CLOUD_KUBE_AGENT_CLIENT_SECRET"
-	EnvVarPlantonCloudKubeAgentHostingClusterId    = "PLANTON_CLOUD_KUBE_AGENT_HOSTING_CLUSTER_ID"
+	EnvVarPlantonCloudKubeAgentKubernetesClusterId = "PLANTON_CLOUD_KUBE_AGENT_HOSTING_CLUSTER_ID"
 	EnvVarPlantonCloudServiceApiEndpoint           = "PLANTON_CLOUD_SERVICE_API_ENDPOINT"
 	EnvVarOpenCostApiEndpoint                      = "OPEN_COST_API_ENDPOINT"
 	EnvVarOpenCostPollingIntervalSeconds           = "OPEN_COST_POLLING_INTERVAL_SECONDS"
@@ -38,9 +38,9 @@ func Load() (*Config, error) {
 	if !ok {
 		return nil, errors.Errorf("%s environment variable is not set", EnvVarPlantonCloudKubeAgentClientSecret)
 	}
-	hostingClusterId, ok := os.LookupEnv(EnvVarPlantonCloudKubeAgentHostingClusterId)
+	kubernetesClusterId, ok := os.LookupEnv(EnvVarPlantonCloudKubeAgentKubernetesClusterId)
 	if !ok {
-		return nil, errors.Errorf("%s environment variable is not set", EnvVarPlantonCloudKubeAgentHostingClusterId)
+		return nil, errors.Errorf("%s environment variable is not set", EnvVarPlantonCloudKubeAgentKubernetesClusterId)
 	}
 	plantonCloudServiceApiEndpoint, ok := os.LookupEnv(EnvVarPlantonCloudServiceApiEndpoint)
 	if !ok {
@@ -77,7 +77,7 @@ func Load() (*Config, error) {
 	return &Config{
 		PlantonCloudKubeAgentMachineAccountEmail: clientId,
 		PlantonCloudKubeAgentClientSecret:        clientSecret,
-		PlantonCloudKubeAgentHostingClusterId:    hostingClusterId,
+		PlantonCloudKubeAgentKubernetesClusterId: kubernetesClusterId,
 		PlantonCloudServiceApiEndpoint:           plantonCloudServiceApiEndpoint,
 		OpenCostApiEndpoint:                      openCostApiEndpoint,
 		OpenCostPollingIntervalSeconds:           openCostPollingIntervalSeconds,

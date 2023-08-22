@@ -7,10 +7,10 @@ require (
 	github.com/jinzhu/copier v0.3.5
 	github.com/opencost/opencost v1.102.2
 	github.com/pkg/errors v0.9.1
-	github.com/plantoncloud-inc/company-protos/zzgo v0.0.0-20230720232533-d45d612e2a20
-	github.com/plantoncloud-inc/go-commons v0.0.306
-	github.com/plantoncloud-inc/iam-protos/zzgo v0.0.0-20230720231603-cc1283e9cf45
-	github.com/plantoncloud-inc/proto-commons/zzgo v0.0.0-20230720045148-42997aec9d84
+	github.com/plantoncloud-inc/company-protos/zzgo v0.0.0-20230821234301-eb5c51ac5b9b
+	github.com/plantoncloud-inc/go-commons v0.0.308
+	github.com/plantoncloud-inc/iam-protos/zzgo v0.0.0-20230821231739-50f073b470da
+	github.com/plantoncloud-inc/proto-commons/zzgo v0.0.0-20230821231433-7426d091dc46
 	github.com/sirupsen/logrus v1.9.0
 	golang.org/x/crypto v0.8.0
 	google.golang.org/grpc v1.54.0
