@@ -9,7 +9,7 @@ import (
 type Config struct {
 	PlantonCloudKubeAgentMachineAccountEmail string
 	PlantonCloudKubeAgentClientSecret        string
-	PlantonCloudKubeAgentKubernetesClusterId string
+	PlantonCloudKubeAgentKubeClusterId       string
 	PlantonCloudServiceApiEndpoint           string
 	OpenCostApiEndpoint                      string
 	OpenCostPollingIntervalSeconds           int
@@ -77,7 +77,7 @@ func Load() (*Config, error) {
 	return &Config{
 		PlantonCloudKubeAgentMachineAccountEmail: clientId,
 		PlantonCloudKubeAgentClientSecret:        clientSecret,
-		PlantonCloudKubeAgentKubernetesClusterId: kubernetesClusterId,
+		PlantonCloudKubeAgentKubeClusterId:       kubernetesClusterId,
 		PlantonCloudServiceApiEndpoint:           plantonCloudServiceApiEndpoint,
 		OpenCostApiEndpoint:                      openCostApiEndpoint,
 		OpenCostPollingIntervalSeconds:           openCostPollingIntervalSeconds,
