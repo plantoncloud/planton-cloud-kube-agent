@@ -1,5 +1,5 @@
 version ?=local
-docker_image_repo = us-central1-docker.pkg.dev/planton-shared-services-jx/afs-planton-pos-uc1-ext-docker/plantoncode/planton/pcs/lib/mod/planton-cloud-kube-agent
+docker_image_repo = us-central1-docker.pkg.dev/ca-planton-gcp-sh-zg/afs-planton-oss-gcp-uc1-docker/github.com/plantoncloud/planton-cloud-kube-agent
 
 .PHONY: tidy
 tidy:
@@ -40,7 +40,6 @@ publish-image: build-image
 
 .PHONY: update-deps
 update-deps:
-	go get github.com/plantoncloud-inc/proto-commons/zzgo
-	go get github.com/plantoncloud-inc/iam-protos/zzgo
-	go get github.com/plantoncloud-inc/company-protos/zzgo
+	go get buf.build/gen/go/plantoncloud/planton-cloud-apis/protocolbuffers/go@latest
+	go get buf.build/gen/go/plantoncloud/planton-cloud-apis/grpc/go@grpc
 	go get github.com/plantoncloud-inc/go-commons

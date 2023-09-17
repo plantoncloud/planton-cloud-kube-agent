@@ -3,14 +3,13 @@ module github.com/plantoncloud-inc/planton-cloud-kube-agent
 go 1.20
 
 require (
+	buf.build/gen/go/plantoncloud/planton-cloud-apis/grpc/go v1.3.0-20230915000737-49ccd5cb2a8e.1
+	buf.build/gen/go/plantoncloud/planton-cloud-apis/protocolbuffers/go v1.31.0-20230915000737-49ccd5cb2a8e.1
 	github.com/golang-jwt/jwt/v4 v4.5.0
 	github.com/jinzhu/copier v0.3.5
 	github.com/opencost/opencost v1.102.2
 	github.com/pkg/errors v0.9.1
-	github.com/plantoncloud-inc/company-protos/zzgo v0.0.0-20230821234301-eb5c51ac5b9b
-	github.com/plantoncloud-inc/go-commons v0.0.308
-	github.com/plantoncloud-inc/iam-protos/zzgo v0.0.0-20230821231739-50f073b470da
-	github.com/plantoncloud-inc/proto-commons/zzgo v0.0.0-20230821231433-7426d091dc46
+	github.com/plantoncloud-inc/go-commons v0.0.402
 	github.com/sirupsen/logrus v1.9.0
 	golang.org/x/crypto v0.8.0
 	google.golang.org/grpc v1.54.0
@@ -120,7 +119,7 @@ require (
 	github.com/rs/zerolog v1.26.1 // indirect
 	github.com/scaleway/scaleway-sdk-go v1.0.0-beta.9 // indirect
 	github.com/shopspring/decimal v1.2.0 // indirect
-	github.com/spf13/afero v1.6.0 // indirect
+	github.com/spf13/afero v1.9.2 // indirect
 	github.com/spf13/cast v1.4.1 // indirect
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
@@ -140,7 +139,7 @@ require (
 	google.golang.org/api v0.103.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/genproto v0.0.0-20230110181048-76db0878b65f // indirect
-	google.golang.org/protobuf v1.29.1 // indirect
+	google.golang.org/protobuf v1.31.0 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect

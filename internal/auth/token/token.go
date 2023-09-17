@@ -1,10 +1,11 @@
 package token
 
 import (
+	iamv1authnmachinegrpc "buf.build/gen/go/plantoncloud/planton-cloud-apis/grpc/go/cloud/planton/apis/v1/iam/authn/machine/rpc/rpcgrpc"
+	iamv1authnmachinepb "buf.build/gen/go/plantoncloud/planton-cloud-apis/protocolbuffers/go/cloud/planton/apis/v1/iam/authn/machine/rpc"
 	"context"
 	"github.com/golang-jwt/jwt/v4"
 	"github.com/pkg/errors"
-	iamrpc "github.com/plantoncloud-inc/iam-protos/zzgo/planton/iam/proto/v1/authn/machine/rpc"
 	"github.com/plantoncloud-inc/planton-cloud-kube-agent/internal/apiclient"
 	"github.com/plantoncloud-inc/planton-cloud-kube-agent/internal/config"
 	log "github.com/sirupsen/logrus"
@@ -49,8 +50,8 @@ func StartRotator(ctx context.Context, c *config.Config) {
 
 // getToken by sending a rpc call to planton cloud service
 func getToken(ctx context.Context, c *config.Config, conn *grpc.ClientConn) (string, error) {
-	machineAuthnQueryClient := iamrpc.NewMachineAuthenticationQueryControllerClient(conn)
-	token, err := machineAuthnQueryClient.GetAccessToken(ctx, &iamrpc.GetMachineAccessTokenQueryInput{
+	machineAuthnQueryClient := iamv1authnmachinegrpc.NewMachineAuthenticationQueryControllerClient(conn)
+	token, err := machineAuthnQueryClient.GetAccessToken(ctx, &iamv1authnmachinepb.GetMachineAccessTokenQueryInput{
 		MachineAccountEmail: c.PlantonCloudKubeAgentMachineAccountEmail,
 		ClientSecret:        c.PlantonCloudKubeAgentClientSecret,
 	})
