@@ -40,6 +40,5 @@ publish-image: build-image
 
 .PHONY: update-deps
 update-deps:
-	go get buf.build/gen/go/plantoncloud/planton-cloud-apis/protocolbuffers/go@latest
-	go get buf.build/gen/go/plantoncloud/planton-cloud-apis/grpc/go@grpc
+	go get github.com/plantoncloud/planton-cloud-apis
 	go get github.com/plantoncloud-inc/go-commons

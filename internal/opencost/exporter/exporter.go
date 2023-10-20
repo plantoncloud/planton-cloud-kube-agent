@@ -1,20 +1,19 @@
 package exporter
 
 import (
-	integrationv1kubecostgrpc "buf.build/gen/go/plantoncloud/planton-cloud-apis/grpc/go/cloud/planton/apis/v1/integration/kubernetes/cost/rpc/rpcgrpc"
-	"buf.build/gen/go/plantoncloud/planton-cloud-apis/protocolbuffers/go/cloud/planton/apis/v1/commons/resource/enums"
-	integrationv1kubecostpb "buf.build/gen/go/plantoncloud/planton-cloud-apis/protocolbuffers/go/cloud/planton/apis/v1/integration/kubernetes/cost/rpc"
 	"context"
 	"fmt"
 	"github.com/jinzhu/copier"
 	"github.com/opencost/opencost/pkg/kubecost"
 	"github.com/pkg/errors"
-	commonsresource "github.com/plantoncloud-inc/go-commons/domain/common/resource"
+	"github.com/plantoncloud-inc/go-commons/domain/common/resource"
 	"github.com/plantoncloud-inc/planton-cloud-kube-agent/internal/apiclient"
 	"github.com/plantoncloud-inc/planton-cloud-kube-agent/internal/auth/token"
 	"github.com/plantoncloud-inc/planton-cloud-kube-agent/internal/config"
 	"github.com/plantoncloud-inc/planton-cloud-kube-agent/internal/opencost/client"
 	"github.com/plantoncloud-inc/planton-cloud-kube-agent/internal/opencost/labels"
+	"github.com/plantoncloud/planton-cloud-apis/zzgo/cloud/planton/apis/v1/commons/resource/enums"
+	"github.com/plantoncloud/planton-cloud-apis/zzgo/cloud/planton/apis/v1/integration/kubernetes/cost"
 	log "github.com/sirupsen/logrus"
 	"time"
 )
@@ -29,18 +28,18 @@ func Export(ctx context.Context, c *config.Config) error {
 	if err != nil {
 		return errors.Wrap(err, "failed to get new planton-cloud api client")
 	}
-	costAllocationCmdControllerClient := integrationv1kubecostgrpc.NewCostAllocationCommandControllerClient(conn)
-	plantonCostAllocations := make([]*integrationv1kubecostpb.CostAllocation, 0)
+	costAllocationCmdControllerClient := cost.NewCostAllocationCommandControllerClient(conn)
+	plantonCostAllocations := make([]*cost.CostAllocation, 0)
 	for _, ca := range openCostAllocations {
 		workloadLabels := labels.GetLabels(ca)
 
-		if commonsresource.ResourceTypeStringToEnum(workloadLabels.ResourceType) == enums.ResourceType_RESOURCE_TYPE_UNSPECIFIED {
+		if resource.StringToResourceTypeEnum(workloadLabels.ResourceType) == enums.ResourceType_RESOURCE_TYPE_UNSPECIFIED {
 			//skip export for unknown workloads
 			log.Debugf("skipping export for %s as the resource-type is unknown", ca.Name)
 			continue
 		}
 
-		var plantonCloudCostAllocation integrationv1kubecostpb.CostAllocation
+		var plantonCloudCostAllocation cost.CostAllocation
 
 		if err := copier.Copy(&plantonCloudCostAllocation, &ca); err != nil {
 			return errors.Wrap(err, "failed to copy cost-allocation object from open-cost to planton-cloud")
@@ -60,7 +59,7 @@ func Export(ctx context.Context, c *config.Config) error {
 	}
 	log.Debugf("exporting %d entriesto planton-cloud", len(plantonCostAllocations))
 	if _, err := costAllocationCmdControllerClient.Create(ctx,
-		&integrationv1kubecostpb.CostAllocations{
+		&cost.CostAllocations{
 			Entries: plantonCostAllocations,
 		}); err != nil {
 		return errors.Wrap(err, "failed to export cost-allocation to planton-cloud")
@@ -76,7 +75,7 @@ func getHourlyWindow() string {
 	return fmt.Sprintf("%s,%s", startWindow.Format("2006-01-02T15:04:05Z"), endWindow.Format("2006-01-02T15:04:05Z"))
 }
 
-func copy(costAllocation *integrationv1kubecostpb.CostAllocation, allocationJson *kubecost.AllocationJSON) {
+func copy(costAllocation *cost.CostAllocation, allocationJson *kubecost.AllocationJSON) {
 	costAllocation.CpuCores = *allocationJson.CPUCores
 	costAllocation.CpuCoreRequestAverage = *allocationJson.CPUCoreRequestAverage
 	costAllocation.CpuCost = *allocationJson.CPUCost

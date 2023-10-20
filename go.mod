@@ -3,13 +3,12 @@ module github.com/plantoncloud-inc/planton-cloud-kube-agent
 go 1.20
 
 require (
-	buf.build/gen/go/plantoncloud/planton-cloud-apis/grpc/go v1.3.0-20230915000737-49ccd5cb2a8e.1
-	buf.build/gen/go/plantoncloud/planton-cloud-apis/protocolbuffers/go v1.31.0-20230915000737-49ccd5cb2a8e.1
 	github.com/golang-jwt/jwt/v4 v4.5.0
 	github.com/jinzhu/copier v0.3.5
 	github.com/opencost/opencost v1.102.2
 	github.com/pkg/errors v0.9.1
-	github.com/plantoncloud-inc/go-commons v0.0.402
+	github.com/plantoncloud-inc/go-commons v0.0.407
+	github.com/plantoncloud/planton-cloud-apis v0.0.8
 	github.com/sirupsen/logrus v1.9.0
 	golang.org/x/crypto v0.8.0
 	google.golang.org/grpc v1.54.0
