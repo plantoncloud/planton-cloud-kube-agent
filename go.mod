@@ -7,8 +7,8 @@ require (
 	github.com/jinzhu/copier v0.3.5
 	github.com/opencost/opencost v1.102.2
 	github.com/pkg/errors v0.9.1
-	github.com/plantoncloud-inc/go-commons v0.0.407
-	github.com/plantoncloud/planton-cloud-apis v0.0.8
+	github.com/plantoncloud-inc/go-commons v0.0.408
+	github.com/plantoncloud/planton-cloud-apis v0.0.9
 	github.com/sirupsen/logrus v1.9.0
 	golang.org/x/crypto v0.8.0
 	google.golang.org/grpc v1.54.0
